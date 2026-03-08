@@ -1,12 +1,24 @@
 version: "3.8"
+
 services:
-  smartvigilant:
-    build: .
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: smartvigilant_backend
     ports:
       - "8000:8000"
     volumes:
-      - ./app:/opt/smartvigilant/app
-      - ./models:/opt/smartvigilant/models
+      - ./backend:/app
+      - ./ai_engine:/app/models
     environment:
       - VIRUSTOTAL_API_KEY=${VIRUSTOTAL_API_KEY}
 
+# Optional: frontend service (uncomment if needed)
+# frontend:
+#   build: ./frontend
+#   container_name: smartvigilant_frontend
+#   ports:
+#     - "3000:3000"
+#   volumes:
+#     - ./frontend:/app

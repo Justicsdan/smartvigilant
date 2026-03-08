@@ -1,7 +1,7 @@
 # Core FastAPI Stack
 fastapi==0.110.0
 uvicorn[standard]==0.27.0
-python-multipart==0.0.9  # Updated: 0.0.6 is old; 0.0.9 is latest stable
+python-multipart==0.0.9
 
 # Pydantic & Settings
 pydantic==2.6.4
@@ -18,19 +18,19 @@ python-jose[cryptography]==3.3.0
 
 # Logging
 loguru==0.7.2
-python-json-logger==2.0.7  # Fixed name: pythonjsonlogger → python-json-logger
+python-json-logger==2.0.7
 
 # AI & Computer Vision
 torch==2.4.1
 torchvision==0.19.1
 tensorflow==2.16.1
 onnxruntime==1.18.1
-ultralytics==8.3.5  # YOLO11 support
+ultralytics==8.3.5
 insightface==0.7.3
 opencv-python==4.10.0.84
 liboqs-python==0.10.0
 
 # Utilities
 requests==2.32.3
-slowapi==0.1.9  # For rate limiting (optional but recommended)
-resend==0.8.0  # Official Resend Python client (for emails)
+slowapi==0.1.9
+resend==0.8.0
