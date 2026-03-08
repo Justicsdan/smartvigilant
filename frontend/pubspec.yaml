@@ -1,0 +1,63 @@
+name: smartvigilant
+description: AI-powered dual cyber & physical security app by Danladi Heman Shagatpo — powered by Dutycall
+version: 1.0.0+20260106
+publish_to: "none"  # Remove when ready to publish
+environment:
+  sdk: '>=3.2.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Core & Networking
+  dio: ^5.4.0
+  pretty_dio_logger: ^1.3.1
+
+  # Camera & Real-time
+  camera: ^0.10.6
+  web_socket_channel: ^3.0.0
+
+  # Security & Storage
+  flutter_secure_storage: ^9.0.0
+  shared_preferences: ^2.2.2
+
+  # State Management
+  provider: ^6.1.1
+
+  # UI & Polish
+  google_fonts: ^6.1.0
+  vibration: ^1.8.4
+  animated_text_kit: ^4.2.2
+
+  # Push Notifications
+  firebase_core: ^2.24.0
+  firebase_messaging: ^14.7.10
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+  integration_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/smartvigilant_logo.png
+    - assets/images/splash_screen.png
+    - assets/images/icons/
+    - assets/images/icons/alert.png
+    - assets/images/icons/camera.png
+    - assets/images/icons/shield.png
+    - assets/images/icons/panic.png
+
+  fonts:
+    - family: Orbitron
+      fonts:
+        - asset: assets/fonts/Orbitron-Bold.ttf
+          weight: 700
+    - family: VigilantFont
+      fonts:
+        - asset: assets/fonts/vigilant_font.ttf
+          weight: 400

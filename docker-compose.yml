@@ -1,0 +1,12 @@
+version: "3.8"
+services:
+  smartvigilant:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./app:/opt/smartvigilant/app
+      - ./models:/opt/smartvigilant/models
+    environment:
+      - VIRUSTOTAL_API_KEY=${VIRUSTOTAL_API_KEY}
+

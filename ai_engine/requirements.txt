@@ -1,0 +1,8 @@
+torch==2.1.0
+tensorflow==2.15.0
+onnxruntime==1.16.0
+opencv-python==4.9.0
+liboqs-python==0.9.0  # For quantum-resistant encryption
+transformers==4.36.0  # For NLP/phishing
+scikit-learn==1.4.0
+requests==2.31.0

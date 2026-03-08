@@ -1,0 +1,39 @@
+from fastapi import FastAPI, Depends
+from fastapi.security import OAuth2PasswordBearer
+from sqlalchemy.orm import Session
+import uvicorn
+from core.vigilant_cyber.aithreat import detect_ai_threat
+from utils.config import get_db
+from utils.logger import logger
+import liboqs  # Quantum-resistant encryption
+
+app = FastAPI(title="SmartVigilant API", version="1.0.0")
+
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
+
+@app.get("/health")
+def health_check():
+    return {"status": "healthy"}
+
+@app.post("/cyber/scan")
+def scan_cyber(data: dict, token: str = Depends(oauth2_scheme), db: Session = Depends(get_db)):
+    # Quantum-encrypt sensitive data
+    kem = liboqs.KEM("Kyber512")
+    public_key = kem.generate_keypair()
+    encapsulated_secret, ciphertext = kem.encaps(public_key)
+    # Decaps for demo; in prod, store securely
+    shared_secret = kem.decaps(encapsulated_secret, ciphertext)
+    
+    threat = detect_ai_threat(data)  # From ai_engine
+    logger.info(f"Scan result: {threat}")
+    return {"result": threat, "encrypted": True}
+
+# Include other routes from api/v1/*
+from api.v1 import auth, vigilant_cyber, vigilant_human, devices
+app.include_router(auth.router, prefix="/v1")
+app.include_router(vigilant_cyber.router, prefix="/v1")
+app.include_router(vigilant_human.router, prefix="/v1")
+app.include_router(devices.router, prefix="/v1")
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=8000)

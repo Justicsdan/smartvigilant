@@ -1,0 +1,14 @@
+import pandas as pd
+from pipelines.cyber.train_malware import build_model  # Example import
+
+# Retrain cyber models with new data
+
+def retrain_malware(new_data_path):
+    df = pd.read_csv(new_data_path)
+    # Process and retrain
+    model = build_model()
+    # Fit with new data...
+    # Save updated model
+
+if __name__ == "__main__":
+    retrain_malware('threat_data.csv')  # From threat_intel.py

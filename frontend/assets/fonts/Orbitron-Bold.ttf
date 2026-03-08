@@ -1,0 +1,17 @@
+Text(
+  'SMART VIGILANT',
+  style: TextStyle(
+    fontFamily: 'Orbitron',
+    fontWeight: FontWeight.w700,      // or FontWeight.bold
+    fontSize: 36,
+    color: Colors.white,
+    letterSpacing: 2.0,
+    shadows: [
+      Shadow(
+        color: Colors.cyan.withOpacity(0.8),
+        offset: Offset(0, 0),
+        blurRadius: 10,
+      ),
+    ],
+  ),
+)

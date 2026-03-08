@@ -1,0 +1,4 @@
+database:
+  url: sqlite:///vigilant.db
+api:
+  base: /api/v1

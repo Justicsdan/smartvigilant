@@ -1,0 +1,4 @@
+duration,protocol_type,service,flag,src_bytes,dst_bytes,land,wrong_fragment,urgent,count,label
+0.1,tcp,http,SF,200,1500,0,0,0,5,normal
+10.5,udp,domain,S0,0,0,0,0,0,50,attack
+0.0,tcp,private,REJ,0,0,0,0,0,1,normal
